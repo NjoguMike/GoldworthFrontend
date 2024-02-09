@@ -1,0 +1,56 @@
+.nav-pane{
+    display: flex;
+    background: #F1FAFE;
+    flex-direction: column;
+    width: 25rem;
+    height: auto;
+    padding: 9px;
+}
+.profile-details h2{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+.info-title{
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+.profile-details{
+  height: 560px;
+  background: #F1FAFE;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.profile-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.profile-info img{
+    border-radius: 80%;
+    width: 150px;
+    border: 3px solid #00A8A2;
+}
+.profile-banner{
+    background: #08c5bf;
+    display: flex;
+    padding: 30px;
+    padding-left: 60px;
+    margin-top: 60px;
+    width: fit-content;
+    border-radius: 150px;
+    animation: mymove 5s infinite;
+}
+
+@keyframes mymove {
+  50% {border-radius: 50px;}
+}
+.profile-banner-text{
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
