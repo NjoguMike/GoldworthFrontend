@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 function CoursesPage() {
   const [courseList, setCourseList] = useState([]);
  
+  const URL = 'https://goldworth-backend.onrender.com'
 
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5555/courses');
+        const response = await fetch(`${URL}/courses`);
         const data = await response.json();
         setCourseList(data);
       } catch (error) {

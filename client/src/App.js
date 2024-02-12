@@ -45,8 +45,9 @@ function App() {
   const [ savedDocs , setSaved ] = useState([])
   const [ submitted , setSubmitted ] = useState([])
 
+  const URL = 'https://goldworth-backend.onrender.com'
   useEffect(() => {
-    fetch("/assignments").then((response) => {
+    fetch(`${URL}/assignments`).then((response) => {
       if (response.ok) {
         response.json()
           .then((assignment) => {
@@ -58,7 +59,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    fetch("/submitted-assignments").then((response) => {
+    fetch(`${URL}/submitted-assignments`).then((response) => {
       if (response.ok) {
         response.json()
           .then((submitted) => {
@@ -69,7 +70,7 @@ function App() {
   }, [])
 
   function fetchEventData() {
-    fetch("/events")
+    fetch(`${URL}/events`)
       .then((response) => response.json())
       .then((eventData) => {
         eventData.forEach((event) => {
@@ -84,7 +85,7 @@ function App() {
   useEffect(() => fetchEventData(), []);
 
   function fetchCoursesData() {
-    fetch("/courses")
+    fetch(`${URL}/courses`)
       .then((response) => response.json())
       .then((data) => {
 
@@ -113,7 +114,7 @@ function App() {
 
   
   useEffect(() => {
-    fetch("/checksession").then((response) => {
+    fetch(`${URL}/checksession`).then((response) => {
       if (response.ok) {
         response.json()
           .then((sessionMember) => {
@@ -143,7 +144,7 @@ function App() {
   // }
 
   useEffect(() => {
-    fetch('/students')
+    fetch(`${URL}/students`)
     .then((r)=>{
       if(r.ok){
         r.json()
@@ -165,7 +166,7 @@ function App() {
 
   return (
 
-      <appContext.Provider value={{user , students , session , setSession , setUser , courses, coursesList , assignments, submitted }}>
+      <appContext.Provider value={{user , URL, students , session , setSession , setUser , courses, coursesList , assignments, submitted }}>
         <div className=''>
           <Navbar />
           <ToastContainer />

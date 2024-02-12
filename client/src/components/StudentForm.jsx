@@ -12,6 +12,8 @@ function StudentForm() {
         parent_id:"",
       });
 
+    const URL = 'https://goldworth-backend.onrender.com'
+
     function handleChange(e) {
 
     const id = e.target.id;
@@ -29,7 +31,7 @@ function StudentForm() {
         formData.append(key, student[key])
         })
 
-        fetch("/students", {
+        fetch(`${URL}/students`, {
             method: "POST",
             body: formData,
           })

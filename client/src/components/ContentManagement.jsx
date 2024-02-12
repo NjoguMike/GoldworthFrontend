@@ -10,12 +10,12 @@ function ContentManagement({ assignment }) {
     // "student_id":assignment.student_id,
     // "teacher_id":assignment.teacher_id,
   });
-  
+  const URL = 'https://goldworth-backend.onrender.com'
   
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch("/save_contents", {
+    fetch(`${URL}/save_contents`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

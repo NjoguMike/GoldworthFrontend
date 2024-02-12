@@ -7,10 +7,10 @@ function Navbar() {
 
   const navigate = useNavigate();
 
-  const { user , session  , setUser } = useContext(appContext)
+  const { user , URL , session  , setUser } = useContext(appContext)
 
   function handleLogout() {
-    fetch("/logout", {
+    fetch(`${URL}/logout`, {
       "method": "DELETE",
       "headers": {
         "Content-Type": "application/json"

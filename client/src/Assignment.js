@@ -5,6 +5,7 @@ import DownloadPDF from './components/DownloadPDF'
 
  function Assignment({ assignments }) {
 
+    const URL = 'https://goldworth-backend.onrender.com'
     const { assignmentID } = useParams()
     const assignment = assignments.filter((assignment)=> assignment.id === parseInt(assignmentID))[0]
     // console.log(assignments)
@@ -12,7 +13,7 @@ import DownloadPDF from './components/DownloadPDF'
 
     function downloadAssignment(){
 
-      fetch(`/assignments/${assignmentID}`)
+      fetch(`${URL}/assignments/${assignmentID}`)
       .then((r)=>r.json())
       .then((r)=>{
         downloadLink = r.assignment_file

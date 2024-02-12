@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 function ParentForm() {
+    const URL = 'https://goldworth-backend.onrender.com'
 
     const [parent, setParent] = useState({
         Firstname: "",
@@ -27,7 +28,7 @@ function ParentForm() {
         formData.append(key, parent[key])
     })
 
-    fetch("/parents", {
+    fetch(`${URL}/parents`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

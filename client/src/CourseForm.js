@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function CourseForm() {
 
+    const URL = 'https://goldworth-backend.onrender.com'
   const [courseData, setCourseData] = useState({
     course_name: "",
     description: "",
@@ -31,7 +32,7 @@ console.log(courseData)
 function handleSubmit(e){
     e.preventDefault();
 
-    fetch("/courses",{
+    fetch(`${URL}/courses`,{
         method:"POST",
         headers:{
             "teacher-Type":"application/json"

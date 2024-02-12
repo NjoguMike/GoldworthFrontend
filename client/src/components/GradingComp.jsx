@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { appContext } from '../utils/appContext';
 
 function GradingComp({ assignment }) {
-    const { user } = useContext(appContext)
+    const { user , URL } = useContext(appContext)
 
     const [gradingReport, SetGradingReport] = useState({
         topic:assignment.assignment_name,
@@ -28,7 +28,7 @@ function GradingComp({ assignment }) {
         e.preventDefault()
         console.log(gradingReport)
 
-        fetch('/report-cards',{
+        fetch(`${URL}/report-cards`,{
             method: "POST",
             headers: {
               "Content-Type": "application/json",

@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 function TeacherList() {
   const [teachers, setTeachers] = useState([]);
+  const URL = 'https://goldworth-backend.onrender.com'
 
   useEffect(() => {
     const fetchTeachers = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5555/teachers'); 
+        const response = await fetch(`${URL}/teachers`); 
         const data = await response.json();
         setTeachers(data);
       } catch (error) {

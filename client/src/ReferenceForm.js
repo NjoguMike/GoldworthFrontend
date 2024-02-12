@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 function Reference() {
-
+const URL = 'https://goldworth-backend.onrender.com'
   const [content, setContent] = useState({
     doc_name: "",
     description: "",
@@ -17,7 +17,7 @@ setContent({ ...content, [id]: value })
 }
 
 function handleSubmit(){
-    fetch("/courses",{
+    fetch(`${URL}/courses`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
