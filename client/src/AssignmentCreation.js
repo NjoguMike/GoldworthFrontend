@@ -3,7 +3,7 @@ import './AssignmentCreation.css';
 
 function AssignmentForm() {
 
-    const URL = 'https://goldworth-backend.onrender.com'
+
     const [assignment, setAssignment] = useState({
         assignment_name: "",
         topic: "",
@@ -30,7 +30,7 @@ function AssignmentForm() {
         formData.append(key, assignment[key])
         })
 
-        fetch(`${URL}/assignments`,{
+        fetch("/assignments",{
             method:"POST",
             body:formData,
         })

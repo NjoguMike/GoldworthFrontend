@@ -1,10 +1,10 @@
 import React from 'react';
 
-function DownloadButton(){
+function DownloadButton({ url , buttonName }){
 
   const downloadDocument = () => {
 
-    const documentUrl = 'your_document_url';
+    const documentUrl = url;
     
     const link = document.createElement('a');
     
@@ -20,7 +20,7 @@ function DownloadButton(){
   };
 
   return (
-      <button onClick={downloadDocument} className='button'>Download</button>
+      <button onClick={downloadDocument} >{buttonName ? buttonName : 'Download'}</button>
   );
 };
 

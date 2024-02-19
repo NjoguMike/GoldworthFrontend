@@ -11,8 +11,6 @@ function Login({ session , setSession , setUser }) {
 
   const navigate = useNavigate();
 
-  const URL = 'https://goldworth-backend.onrender.com'
-
   function handleUser(user){
     if("student_id" in user){
       setSession({...session, user_type:"student", user_details:user})
@@ -34,7 +32,7 @@ function Login({ session , setSession , setUser }) {
       password: "",
     })
 
-    fetch(`${URL}/login`, {
+    fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +46,7 @@ function Login({ session , setSession , setUser }) {
             handleUser(r)
           navigate("/dashboard", { replace: true });
 
-          return fetch(`${URL}/profile_image`).then((r)=>{
+          return fetch('/profile_image').then((r)=>{
             if(r.ok){
               r.json()
               .then((image)=>{

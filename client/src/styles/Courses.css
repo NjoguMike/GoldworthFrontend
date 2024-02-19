@@ -4,7 +4,7 @@
   background-size: cover;
   background-position: bottom;
   height: 36vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,32 +17,33 @@
   color: white;
   font-size: 40px;
  }
- #courses-img{
-  width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-   }
  .course-list {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: auto;
+  margin-top: 25px;
+  padding: 30px 0;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px;
   justify-content: center;
   /* justify-content: space-evenly;
   padding: 10px;
   /* gap: 20px; */
 }
 
-.course-list > div {
-  width: 400px; 
-  height: 400px;
-  margin: 10px;
-}
 .course-card-content{
-  background: #ddded8;
+  background: #fff;
   color: black;
+  border-radius: 4px;
+  margin: 0;
+  padding: 0;
+
+  #courses-img{
+    border-radius: 8px 8px 0 0;
+    width: 27rem;
+    height: 15rem;
+    margin-bottom: 10px;
+     }
 
 }
 .courses-btn{
@@ -51,7 +52,7 @@
   display: inline-block;
   padding: 6px;
   color: white;
-  background-color: #000;
+  background-color: #00A8A2;
   text-align: center;
   cursor: pointer;
   width: 100%;

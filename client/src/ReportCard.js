@@ -4,45 +4,40 @@ import { appContext } from "./utils/appContext"
 import './styles/Reportcard.css';
 
 
-function ReportCard() {
+function ReportCard({ student }) {
 
   const [reportData, setReportData] = useState([]);
-  const { user } = useContext(appContext)
+  const { session , user } = useContext(appContext)
 
   // Accessing properties
-  const studentName = user.name;
-  const studentEmail = user.email;
-  const studentImageURL = user.image_url;
-  const studentID = user.student_id;
-  const report_card = user.report_card || [];
+  const profile = session.user_type === 'student' ? user : student
+  const studentName = profile.name;
+  const studentEmail = profile.email;
+  const studentImageURL = profile.image_url;
+  const studentID = profile.student_id;
+  const courseName = profile.course ? profile.course.course_name : "No course";
+  const courseId = profile.course ? profile.course.id : '_';
+  const assignments = profile.assignments ? profile.assignments : "No content covered yet"
 
-
-  const courses = user.courses || [];
-
-  const course = courses.length > 0 ? courses[0] : null;
-  const courseName = course ? course.course_name : "No course";
-  const courseDescription = course ? course.description : "No course description";
-  const courseId = course ? course.id : '_';
-
-  console.log(user)
+  // console.log(user)
 
   return (
     <div className='report-card'>
-
       <div id="report-card">
+        <div className="header">
+          <h1>Report Card</h1>
+        </div>
         <div className="student-info">
-          <div className="header">
-            <h1>Report Card</h1>
+          <div className="student-course">
+            <h4>Course Code: LMS_{courseId}</h4>
+            <h4>Course Name: {courseName}</h4>
           </div>
-
-          <div>
-            <div><h3>Course Code: LMS_{courseId}</h3></div>
-            <div><h3>Course Name: {courseName}</h3></div>
-          </div>
-          <div>
-            <div><h4>STU_{studentID}</h4></div>
-            <div><h4>Student Name: {studentName}</h4></div>
-            <div><h4>Student Email: {studentEmail}</h4></div>
+          <div className="student-details">
+            <h4>Student_Id: {studentID}</h4>
+            <div>
+              <h4>{studentName}</h4>
+              <h4>{studentEmail}</h4>
+            </div>
           </div>
 
 
@@ -58,17 +53,11 @@ function ReportCard() {
               </tr>
             </thead>
             <tbody>
-
-            <tr>
-                  <td>"unit.topic"</td>
-                  <td>unit.grade</td>
-                  <td>unit.teacher_remarks</td>
-                </tr>
-              {report_card.map((unit) => (
+              {assignments.map((unit) => (
                 <tr key={unit.id}>
-                  <td>{unit.topic}</td>
+                  <td>{unit.assignment_name}</td>
                   <td>{unit.grade}</td>
-                  <td>{unit.teacher_remarks}</td>
+                  <td>{unit.remarks}</td>
                 </tr>
               ))}
             </tbody>

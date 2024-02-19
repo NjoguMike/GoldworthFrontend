@@ -7,10 +7,10 @@ function Navbar() {
 
   const navigate = useNavigate();
 
-  const { user , URL , session  , setUser } = useContext(appContext)
+  const { user , session  , setUser } = useContext(appContext)
 
   function handleLogout() {
-    fetch(`${URL}/logout`, {
+    fetch("/logout", {
       "method": "DELETE",
       "headers": {
         "Content-Type": "application/json"
@@ -42,7 +42,7 @@ function Navbar() {
       <div className='navbar-container'>
         <h1 id='header'>GOLDWORTH</h1>
         {user.name ? <SetNavbar><Link to={'/dashboard'}>Dashboard</Link></SetNavbar> : <SetNavbar />}
-        {user.name ? <span className='button'>{session.user_type}<MdLogout onClick={handleLogout}/></span> : <Link to="/login" className="button">Login</Link>}
+        {user.name ? <span className='nav-button' onClick={handleLogout}>{session.user_type}<MdLogout /></span> : <span className='nav-button'><Link to="/login" className="button">Login</Link></span>}
       </div>
   )
 }

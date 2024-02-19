@@ -1,36 +1,33 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import GradingComp from './components/GradingComp'
-import DownloadPDF from './components/DownloadPDF'
+import DownloadButton from './components/DownloadComp'
+import { appContext } from './utils/appContext'
 
  function Assignment({ assignments }) {
 
-    const URL = 'https://goldworth-backend.onrender.com'
     const { assignmentID } = useParams()
+    const { session } = useContext(appContext)
     const assignment = assignments.filter((assignment)=> assignment.id === parseInt(assignmentID))[0]
-    // console.log(assignments)
-    let downloadLink
 
-    function downloadAssignment(){
-
-      fetch(`${URL}/assignments/${assignmentID}`)
-      .then((r)=>r.json())
-      .then((r)=>{
-        downloadLink = r.assignment_file
-      }
-      )
-    }
+    let downloadLink = `http://localhost:5555/assignment-file/${assignmentID}`
+    const grade = <GradingComp assignment={assignment}>Grade</GradingComp>
+    // console.log(assignment)
+    // { Object.keys(assignment).includes('grade') ? <GradingComp assignment={assignment}>Grade</GradingComp> : }
 
   return (
-    <div className='assignments'>
-        <div className='assignment-container'>
-            <DownloadPDF />
+    <div className='assignment'>
+        <div>
             <h1>{assignment.assignment_name}</h1>
-            <div>
-                <h2>{assignment.topic}</h2>
+            <div className='assignment-container'>
+                <h3>{assignment.topic}</h3>
                 <p>{assignment.content}</p>
+                <div className='assignment-files'>
+                  <h3>Assignment Files</h3>
+                    <DownloadButton url={downloadLink} buttonName={assignment.assignment_file}/>
+                </div>
             </div>
-            { Object.keys(assignment).includes('grade') ? <GradingComp assignment={assignment}>Grade</GradingComp> : <button> Submit </button>}
+            {session.user_type === 'student' ? <Link className='btn' to={`/assignments/submit/${assignment.id}`}>Submit</Link> : grade}
         </div>
     </div>
   )

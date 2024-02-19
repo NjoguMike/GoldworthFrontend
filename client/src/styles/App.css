@@ -1,4 +1,7 @@
+/* body{
+  box-sizing: border-box;
 
+} */
 li, a{
   list-style: none;
   text-decoration: none;
@@ -124,7 +127,6 @@ li, a{
       justify-content: space-evenly;
       align-items: center;
       column-gap: 10px;
-      /* height: 600px; */
       margin-top: 3rem;
       padding: 50px 50px;
   
@@ -132,19 +134,31 @@ li, a{
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        text-align: center;
         align-items: center;
         width: 240px;
         height: 140px;
+        font-size: 0.9rem;
         overflow: hidden;
-        background-color: rgb(247, 247, 247);
+        background: none;
         border-radius: 8px;
-        padding: 30px;
         margin: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        
-        h3{
-        color: #004B5B;
+
+        img{
+          width: fit-content;
         }
+        #course-header{
+        border-radius: 8px;
+          background: #004a5b5e;
+          color: #fff;
+          position: absolute;
+          z-index: 0;
+          width: 220px;
+          padding: 10px;
+          margin: 0;
+        }
+
         p{
           display: none;
           font-size: 12px;
@@ -156,12 +170,27 @@ li, a{
         justify-content: space-between;
         align-items: center;
         cursor: pointer;
+        /* background-color: #000; */
+        z-index: 0;
         transform: translateY(-18px);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
         transition: transform 0.7s, box-shadow 0.5s;
-    
+
+        #course-header{
+          display: none;
+        }
+
         p{
           display: block;
+          background: #004a5b5e;
+          color: #fff;
+          position: absolute;
+          z-index: 0;
+          width: 220px;
+          height: 140px;
+          padding: 10px 50px;
+          margin: 0;
+          overflow: scroll;
         }
       }
     }
@@ -344,50 +373,77 @@ li, a{
     font-size: 20px;
     right: 16%;
   }
-  .cards-container{
-    margin-top: 3rem;
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    row-gap: 20px;
-    column-gap: 10px;
-    border-inline: 4px solid #00A8A2;
-    padding: 2rem;
-
-    .course-cards{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 350px;
-      height: 250px;
-      border-radius: 6px;
-
-      img{
-        width: 350px;
-        height: 250px;
-      }
-    }
-
-  }
+  
   .assignments{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: #bdd6e0;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: whitesmoke;
     width: 100%;
     border-radius: 5px;
     height: 650px;
-    padding: 30px 40px;
+    padding: 15px 30px;
     overflow-y: scroll;
-    font-size: 14px;
+    font-size: 12px;
+
+    .tabs{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #bdd6e0;
+      gap: 5px;
+      width: 400px;
+      border: none;
+      border-radius: 25px;
+
+      button{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 5px;
+
+        span{
+          display: inline-block;
+          font-size: 10px;
+          font-weight: bold;
+          padding: 4px;
+          background-color: #004B5B;
+          color: #fff;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+        }
+      }
+
+      .active{
+        width: 50%;
+        padding: 15px 15px;
+        background: #fff;
+        font-weight: bold;
+        color: #00A8A2;
+        border: none;
+        border-radius: 25px;
+        z-index: 1;
+      }
+
+      .no-active{
+        width: 47%;
+        background: none;
+        color: #00A8A2;
+        border: none;
+        border-radius: 10px;
+      }
+
+    }
 
     .assignment-card{
+      display: flex;
+      flex-direction: column;
       width: 80%;
       margin: 40px 0;
-      height: 200px;
+      height: 30%;
       padding: 30px 35px 0px 35px;
       background-color: #fff;
       border-radius: 5px;
@@ -426,6 +482,59 @@ li, a{
     }
   }
 
+  .assignment{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    width: 100%;
+    border-radius: 5px;
+    height: 650px;
+    padding: 15px 30px;
+    overflow-y: scroll;
+    font-size: 12px;
+
+    h1{
+      padding: 15px 30px;
+      background-color: #004B5B;
+      color: #fff;
+    }
+
+    h3{
+      padding-top: 15px;
+      font-size: 1rem;
+
+    }
+
+    p{
+      padding-top: 20px;
+      text-indent: 2cm;
+      font-size: 0.9rem;
+    }
+
+    .assignment-container{
+      margin: 10px;
+      gap: 10px;
+
+      .assignment-files{
+      margin: 25px 10px;
+
+      }
+
+      button{
+        background: none;
+        border: none;
+        color: #00A8A2;
+        font-size: 14px;
+      }
+
+      /* button:hover {
+        background-color: #d32f2f;
+        text-decoration: 2px solid #FF9F37;
+        color: #fff;
+      } */
+    } 
+  }
 
  
  #main {
@@ -438,7 +547,7 @@ li, a{
  }
 
 
-.card {
+/* .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background: #F1FAFE;
   width: 80%;
@@ -447,7 +556,7 @@ li, a{
   text-align: center;
   font-family: arial;
   border-radius: 16px;
-}
+} */
 
 .card button {
   border: none;
@@ -470,10 +579,6 @@ li, a{
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-  }
-  
-  h1 {
-    color: #333;
   }
   
   button.delete {

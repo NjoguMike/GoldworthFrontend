@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import '../styles/Sidebar.css';
 import { GoCommentDiscussion } from "react-icons/go";
 import { TbReportAnalytics } from "react-icons/tb";
@@ -9,10 +9,19 @@ import { appContext } from '../utils/appContext';
 
 function SideBar() {
 
+  const [ toggle, setToggle ] = useState(true)
   const { session } = useContext(appContext)
-  return (
 
+  const toggleClass = ()=>{
+    return 'toggled'
+  }
+  return (
     <div className='menu'>
+      <div className='menu-toggle' onClick={toggleClass}>
+          <span className='toggler'></span>
+          <span className='toggler'></span>
+          <span className='toggler'></span>
+      </div>
       <div className='menu-list'>
         <Link to={'/assignments'} className='item'><MdOutlineLibraryBooks className='icon'/> Assignments</Link>
         {session.user_type === 'student' || 'parent' ? <Link to={'/reportcard'} className='item'><TbReportAnalytics className='icon'/> ReportCard</Link> : null}
@@ -24,13 +33,3 @@ function SideBar() {
 }
 
 export default SideBar;
-
-  //  <div className='sidebar'>
-  //       <div class="side-nav"> 
-  //           <Link to={'/active-courses'}>Active Courses</Link>
-  //           <Link to={'/classes'}>Classes</Link>
-  //           <Link to={'/assignments'}>Assignments</Link>
-  //           <Link to={'/reportcard'}>ReportCard</Link>
-  //           <Link to={'/forums'}>Forums</Link>
-  //           <Link to={'/calendar'}>Calendar</Link>
-  // </div> 

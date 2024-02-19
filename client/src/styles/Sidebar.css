@@ -5,7 +5,7 @@
     height: auto;
     padding: 20px;
     background: whitesmoke;
-    margin-left: 20px;
+    margin-left: 10px;
     width: 24rem;
     }
     .menu-list{
@@ -27,6 +27,37 @@
     color: black;
     }
     .menu-list .item:hover{
+    padding-left: 20px;
     background: #f98304;
-    color: black;
+    color: #fff;
     }
+
+
+
+@media screen and (max-width: 900px) {
+    .menu{
+        display: none;
+
+    }
+    /* .menu-toggle{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #fff;
+        position: absolute;
+        left: 13%;
+        width: 40px;
+        height: 40px;
+        padding: 5px;
+        border-radius: 50%;
+        z-index: 1;
+
+        .toggler{
+            border-radius: 2px;
+            background-color: #45A5A1;
+            width: 24px;
+            height: 4px;
+        }
+    } */
+}

@@ -25,6 +25,11 @@ function Home({ courses}) {
       </div>
       <div className='course-cards'>
         {courses.slice(1,5).map((course)=>(<div key={course.id} className='course-card'>
+          <img
+            id='course-img'
+            src={`http://localhost:5555/course-image/${course.id}`}
+            alt={course.course_name}
+          />
           <h3 id='course-header'>{course.course_name} </h3>
           <p>{course.description}</p>
           </div>

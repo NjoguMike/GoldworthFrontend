@@ -7,8 +7,17 @@ import { appContext } from "./utils/appContext";
 
 function Assignments({ assignmentList , setAssignmentList }){
 
-    const { session , assignments , submitted } = useContext(appContext)
+    const { user, session , assignments , submitted } = useContext(appContext)
+    const [ classValue , setClassValue] = useState('assignments')
 
+    const assignmentlist = session.user_type === 'student' ? user.assignments : submitted
+
+    function handleClick(e){
+        const id = e.target.id
+        setClassValue(id)
+        
+        id === 'submitted' ? setAssignmentList(assignmentlist) : setAssignmentList(assignments)
+    }
 
     function UtilityMenu(){
         return (
@@ -21,9 +30,9 @@ function Assignments({ assignmentList , setAssignmentList }){
 
     return(
         <div className="assignments">
-            <div>
-                <button id="assignments" onClick={()=>setAssignmentList(assignments)}>View Assignments</button>
-                <button id="submitted" onClick={()=>setAssignmentList(submitted)}>View Submitted</button>
+            <div className="tabs">
+                <button id="assignments" className={classValue === 'submitted' ? 'no-active' : 'active' } onClick={(e)=>handleClick(e)}>View Assignments <span>{assignments.length}</span></button>
+                <button id="submitted" className={classValue === 'assignments' ? 'no-active' : 'active'} onClick={(e)=>handleClick(e)}>View Submitted <span>{assignmentlist.length}</span></button>
             </div>
             <div>
             {session.user_type === 'teacher' ? <UtilityMenu /> : null}

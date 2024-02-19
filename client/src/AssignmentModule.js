@@ -10,7 +10,6 @@ function AssignmentModule({ assignments }){
                     <Link to={`/assignments/${assigno.id}`}><h2>{assigno.assignment_name}</h2></Link>
                     <p>{assigno.content}</p>
                     <div className="download-btns">
-                        <DownloadButton file={assigno.file}/>
                     </div>
                 </div>  
             ))}
