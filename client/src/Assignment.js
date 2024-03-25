@@ -10,7 +10,7 @@ import { appContext } from './utils/appContext'
     const { session } = useContext(appContext)
     const assignment = assignments.filter((assignment)=> assignment.id === parseInt(assignmentID))[0]
 
-    let downloadLink = `http://localhost:5555/assignment-file/${assignmentID}`
+    let downloadLink = `/assignment-file/${assignmentID}`
     const grade = <GradingComp assignment={assignment}>Grade</GradingComp>
     // console.log(assignment)
     // { Object.keys(assignment).includes('grade') ? <GradingComp assignment={assignment}>Grade</GradingComp> : }

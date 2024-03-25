@@ -13,7 +13,7 @@ function CoursesPage({ coursesList }) {
           <div className='course-card-content' key={course.id}>
             <img
               id='courses-img'
-              src={`http://localhost:5555/course-image/${course.id}`}
+              src={`http://localhost:5000/course-image/${course.id}`}
               alt={course.course_name}
             />
             <h3 id='course-header'>{course.course_name}</h3>

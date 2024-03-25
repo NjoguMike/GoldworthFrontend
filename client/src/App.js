@@ -54,7 +54,7 @@ function App() {
     })
   }, [])
 
-  console.log(user)
+  console.log(courses)
   useEffect(() => {
     fetch("/submitted-assignments").then((response) => {
       if (response.ok) {

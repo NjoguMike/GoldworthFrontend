@@ -5,7 +5,7 @@ function Profile({ user , session }) {
       <div className="nav-pane">
         <div className='profile-details'>
             <div className="profile-info">
-                <img src="http://localhost:5555/profile-image" alt='user'/>
+                <img src="http://localhost:5000/profile-image" alt='user'/>
                 <span><h3 className="info-title"></h3><h4>{session.user_type === 'student' ? `Student_Id : ${user.student_id}` : `Teacher_Id :${user.teacher_id}`}</h4></span>
                 <p>{user.email}</p>
             </div>
