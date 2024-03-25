@@ -43,7 +43,7 @@ function App() {
   const [ submitted , setSubmitted ] = useState([])
 
   useEffect(() => {
-    fetch("/assignments").then((response) => {
+    fetch("https://goldworth-backend.onrender.com/assignments").then((response) => {
       if (response.ok) {
         response.json()
           .then((assignment) => {
@@ -56,7 +56,7 @@ function App() {
 
   console.log(courses)
   useEffect(() => {
-    fetch("/submitted-assignments").then((response) => {
+    fetch("https://goldworth-backend.onrender.com/submitted-assignments").then((response) => {
       if (response.ok) {
         response.json()
           .then((submitted) => {
@@ -67,7 +67,7 @@ function App() {
   }, [])
 
   function fetchEventData() {
-    fetch("/events")
+    fetch("https://goldworth-backend.onrender.com/events")
       .then((response) => response.json())
       .then((eventData) => {
         eventData.forEach((event) => {
@@ -105,7 +105,7 @@ function App() {
 
   
   useEffect(() => {
-    fetch("/checksession").then((response) => {
+    fetch("https://goldworth-backend.onrender.com/checksession").then((response) => {
       if (response.ok) {
         response.json()
           .then((sessionMember) => {

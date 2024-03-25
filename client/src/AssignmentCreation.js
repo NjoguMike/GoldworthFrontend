@@ -30,7 +30,7 @@ function AssignmentForm() {
         formData.append(key, assignment[key])
         })
 
-        fetch("/assignments",{
+        fetch("https://goldworth-backend.onrender.com/assignments",{
             method:"POST",
             body:formData,
         })

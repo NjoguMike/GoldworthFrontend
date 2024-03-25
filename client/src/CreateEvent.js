@@ -62,7 +62,7 @@ export default function CreateEvent({ user , setEvents}) {
         //     return;
         // }
 
-        fetch("/events", {
+        fetch("https://goldworth-backend.onrender.com/events", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

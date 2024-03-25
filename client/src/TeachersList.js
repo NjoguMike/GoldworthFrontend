@@ -6,7 +6,7 @@ function TeacherList() {
   useEffect(() => {
     const fetchTeachers = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5555/teachers'); 
+        const response = await fetch('https://goldworth-backend.onrender.com/teachers'); 
         const data = await response.json();
         setTeachers(data);
       } catch (error) {
