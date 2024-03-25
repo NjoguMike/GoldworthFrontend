@@ -82,7 +82,7 @@ function App() {
   useEffect(() => fetchEventData(), []);
 
   function fetchCoursesData() {
-    fetch("/courses")
+    fetch("https://goldworth-backend.onrender.com/courses")
       .then((response) => response.json())
       .then((data) => {
         setCourse(data)

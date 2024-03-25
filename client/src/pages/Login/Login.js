@@ -32,7 +32,7 @@ function Login({ session , setSession , setUser }) {
       password: "",
     })
 
-    fetch("/login", {
+    fetch("https://goldworth-backend.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +46,7 @@ function Login({ session , setSession , setUser }) {
             handleUser(r)
           navigate("/dashboard", { replace: true });
 
-          return fetch('/profile_image').then((r)=>{
+          return fetch('https://goldworth-backend.onrender.com/profile_image').then((r)=>{
             if(r.ok){
               r.json()
               .then((image)=>{
